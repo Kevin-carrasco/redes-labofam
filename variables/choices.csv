@@ -1,0 +1,484 @@
+list_name,name,label
+sex_list,1,Hombre
+sex_list,2,Mujer
+sex_list,3,Otro
+sex_list,-888,No sabe
+educacion,1,Básica incompleta
+educacion,2,Básica completa o media incompleta
+educacion,3,Media completa
+educacion,4,Técnico o profesional incompleto en Instituto Profesional (IP) o Centro de Educación Técnica (CFT)
+educacion,5,Técnico o profesional completo en Instituto Profesional (IP) o Centro de Educación Técnica (CFT)
+educacion,6,Universitario incompleto
+educacion,7,Universitario completo
+educacion,8,Postgrado
+educacion,-888,No sabe
+pais,1,Chile
+pais,2,Argentina
+pais,3,Bolivia
+pais,4,Haití
+pais,5,Perú
+pais,6,Venezuela
+pais,7,Colombia
+pais,8,Otro país latinoamericano
+pais,9,Otro país no latinoamericano
+pais,-888,No sabe
+relacion,1,Padre/madre corresidente
+relacion,2,Padre/madre no corresidente
+relacion,3,Pareja del padre/madre corresidente
+relacion,4,Pareja del padre/madre no corresidente
+relacion,5,Hermano/a mayor de edad corresidente
+relacion,6,Hermano/a menor de edad corresidente
+relacion,7,Hermano/a mayor de edad no corresidente
+relacion,8,Hermano/a menor de edad no corresidente
+relacion,9,Abuelo/a corresidente
+relacion,10,Abuelo/a no corresidente
+relacion,11,Otro/a familiar corresidente
+relacion,12,Otro/a familiar no corresidente
+relacion,13,Vecino/a (no remunerado/a)
+relacion,14,Amigo/a de la familia (no remunerado/a)
+relacion,15,Persona remunerada en el hogar
+relacion,16,Persona remunerada en otra casa
+relacion,17,Otro
+relacion,-888,No sabe
+cuidado,1,"Alimentó, bañó o vistió al niño/a"
+cuidado,2,Compartió una comida con el niño/a
+cuidado,3,Ayudó con tareas escolares
+cuidado,4,"Llevó o recogió al niño/a a actividades (jardín infantil, colegio, médico, actividades deportivas, entre otras actividades)"
+cuidado,5,Jugó o compartió tiempo de recreación con el niño/a
+cuidado,6,Supervisó al niño/a (estuvo presente) aunque no hizo una actividad específica
+cuidado,7,Realizó otra actividad de cuidado
+cuidado,-888,No sabe
+frecuencia,1,Menos de una vez por semana
+frecuencia,2,Una vez por semana
+frecuencia,3,Varias veces por semana (2-4 días)
+frecuencia,4,Casi todos los días (5-6 días)
+frecuencia,5,Todos los días
+frecuencia,-888,No sabe
+horas,1,Menos de 2 horas
+horas,2,Entre 2 y 4 horas
+horas,3,Entre 4 y 8 horas
+horas,4,Más de 8 horas
+horas,-888,No sabe
+region,1,Arica y Parinacota
+region,2,Tarapacá
+region,3,Antofagasta
+region,4,Atacama
+region,5,Coquimbo
+region,6,Valparaíso
+region,7,Región Metropolitana de Santiago
+region,8,Libertador General Bernardo O’Higgins
+region,9,Maule
+region,10,Ñuble
+region,11,Biobío
+region,12,La Araucanía
+region,13,Los Ríos
+region,14,Los Lagos
+region,15,Aysén del General Carlos Ibáñez del Campo
+region,16,Magallanes y de la Antártica Chilena
+region,-888,No sabe
+comuna_1,1,Arica
+comuna_1,2,Camarones
+comuna_1,3,General Lagos
+comuna_1,4,Putre
+comuna_1,-888,No sabe
+comuna_2,1,Alto Hospicio
+comuna_2,2,Camiña
+comuna_2,3,Colchane
+comuna_2,4,Huara
+comuna_2,5,Iquique
+comuna_2,6,Pica
+comuna_2,7,Pozo Almonte
+comuna_2,-888,No sabe
+comuna_3,1,Antofagasta
+comuna_3,2,Calama
+comuna_3,3,María Elena
+comuna_3,4,Mejillones
+comuna_3,5,Ollagüe
+comuna_3,6,San Pedro de Atacama
+comuna_3,7,Sierra Gorda
+comuna_3,8,Taltal
+comuna_3,9,Tocopilla
+comuna_3,-888,No sabe
+comuna_4,1,Alto del Carmen
+comuna_4,2,Caldera
+comuna_4,3,Chañaral
+comuna_4,4,Copiapó
+comuna_4,5,Diego de Almagro
+comuna_4,6,Freirina
+comuna_4,7,Huasco
+comuna_4,8,Tierra Amarilla
+comuna_4,9,Vallenar
+comuna_4,-888,No sabe
+comuna_5,1,Andacollo
+comuna_5,2,Canela
+comuna_5,3,Combarbalá
+comuna_5,4,Coquimbo
+comuna_5,5,Illapel
+comuna_5,6,La Higuera
+comuna_5,7,La Serena
+comuna_5,8,Los Vilos
+comuna_5,9,Monte Patria
+comuna_5,10,Ovalle
+comuna_5,11,Paihuano
+comuna_5,12,Punitaqui
+comuna_5,13,Río Hurtado
+comuna_5,14,Salamanca
+comuna_5,15,Vicuña
+comuna_5,-888,No sabe
+comuna_6,1,Algarrobo
+comuna_6,2,Cabildo
+comuna_6,3,Calle Larga
+comuna_6,4,Cartagena
+comuna_6,5,Casablanca
+comuna_6,6,Catemu
+comuna_6,7,Concón
+comuna_6,8,El Quisco
+comuna_6,9,El Tabo
+comuna_6,10,Hijuelas
+comuna_6,11,Juan Fernández
+comuna_6,12,La Calera
+comuna_6,13,La Cruz
+comuna_6,14,La Ligua
+comuna_6,15,Limache
+comuna_6,16,Llaillay
+comuna_6,17,Los Andes
+comuna_6,18,Nogales
+comuna_6,19,Olmué
+comuna_6,20,Panquehue
+comuna_6,21,Papudo
+comuna_6,22,Petorca
+comuna_6,23,Puchuncaví
+comuna_6,24,Putaendo
+comuna_6,25,Quilpué
+comuna_6,26,Quintero
+comuna_6,27,Rinconada
+comuna_6,28,San Antonio
+comuna_6,29,San Esteban
+comuna_6,30,San Felipe
+comuna_6,31,Santa María
+comuna_6,32,Santo Domingo
+comuna_6,33,Valparaíso
+comuna_6,34,Villa Alemana
+comuna_6,35,Viña del Mar
+comuna_6,36,Zapallar
+comuna_6,-888,No sabe
+comuna_7,1,Alhué
+comuna_7,2,Buin
+comuna_7,3,Calera de Tango
+comuna_7,4,Cerrillos
+comuna_7,5,Cerro Navia
+comuna_7,6,Colina
+comuna_7,7,Conchalí
+comuna_7,8,Curacaví
+comuna_7,9,El Bosque
+comuna_7,10,El Monte
+comuna_7,11,Estación Central
+comuna_7,12,Huechuraba
+comuna_7,13,Independencia
+comuna_7,14,Isla de Maipo
+comuna_7,15,La Cisterna
+comuna_7,16,La Florida
+comuna_7,17,La Granja
+comuna_7,18,La Pintana
+comuna_7,19,La Reina
+comuna_7,20,Lampa
+comuna_7,21,Las Condes
+comuna_7,22,Lo Barnechea
+comuna_7,23,Lo Espejo
+comuna_7,24,Lo Prado
+comuna_7,25,Macul
+comuna_7,26,Maipú
+comuna_7,27,María Pinto
+comuna_7,28,Melipilla
+comuna_7,29,Ñuñoa
+comuna_7,30,Padre Hurtado
+comuna_7,31,Paine
+comuna_7,32,Pedro Aguirre Cerda
+comuna_7,33,Peñaflor
+comuna_7,34,Peñalolén
+comuna_7,35,Pirque
+comuna_7,36,Providencia
+comuna_7,37,Pudahuel
+comuna_7,38,Puente Alto
+comuna_7,39,Quilicura
+comuna_7,40,Quinta Normal
+comuna_7,41,Recoleta
+comuna_7,42,Renca
+comuna_7,43,San Bernardo
+comuna_7,44,San Joaquín
+comuna_7,45,San José de Maipo
+comuna_7,46,San Miguel
+comuna_7,47,San Pedro
+comuna_7,48,San Ramón
+comuna_7,49,Santiago
+comuna_7,50,Talagante
+comuna_7,51,Tiltil
+comuna_7,52,Vitacura
+comuna_7,-888,No sabe
+comuna_8,1,Chépica
+comuna_8,2,Chimbarongo
+comuna_8,3,Codegua
+comuna_8,4,Coinco
+comuna_8,5,Coltauco
+comuna_8,6,Doñihue
+comuna_8,7,Graneros
+comuna_8,8,La Estrella
+comuna_8,9,Las Cabras
+comuna_8,10,Litueche
+comuna_8,11,Lolol
+comuna_8,12,Machalí
+comuna_8,13,Malloa
+comuna_8,14,Marchihue
+comuna_8,15,Mostazal
+comuna_8,16,Nancagua
+comuna_8,17,Navidad
+comuna_8,18,Olivar
+comuna_8,19,Palmilla
+comuna_8,20,Paredones
+comuna_8,21,Peralillo
+comuna_8,22,Peumo
+comuna_8,23,Pichidegua
+comuna_8,24,Pichilemu
+comuna_8,25,Placilla
+comuna_8,26,Pumanque
+comuna_8,27,Quinta de Tilcoco
+comuna_8,28,Rancagua
+comuna_8,29,Rengo
+comuna_8,30,Requínoa
+comuna_8,31,San Fernando
+comuna_8,32,San Vicente
+comuna_8,33,Santa Cruz
+comuna_8,-888,No sabe
+comuna_9,1,Cauquenes
+comuna_9,2,Chanco
+comuna_9,3,Colbún
+comuna_9,4,Constitución
+comuna_9,5,Curepto
+comuna_9,6,Curicó
+comuna_9,7,Empedrado
+comuna_9,8,Hualañé
+comuna_9,9,Licantén
+comuna_9,10,Linares
+comuna_9,11,Longaví
+comuna_9,12,Maule
+comuna_9,13,Molina
+comuna_9,14,Pelarco
+comuna_9,15,Pelluhue
+comuna_9,16,Pencahue
+comuna_9,17,Parral
+comuna_9,18,Rauco
+comuna_9,19,Retiro
+comuna_9,20,Río Claro
+comuna_9,21,Romeral
+comuna_9,22,Sagrada Familia
+comuna_9,23,San Clemente
+comuna_9,24,San Javier
+comuna_9,25,San Rafael
+comuna_9,26,Talca
+comuna_9,27,Teno
+comuna_9,28,Vichuquén
+comuna_9,29,Villa Alegre
+comuna_9,30,Yerbas Buenas
+comuna_9,-888,No sabe
+comuna_10,1,Bulnes
+comuna_10,2,Chillán
+comuna_10,3,Chillán Viejo
+comuna_10,4,Cobquecura
+comuna_10,5,Coelemu
+comuna_10,6,Coihueco
+comuna_10,7,El Carmen
+comuna_10,8,Ninhue
+comuna_10,9,Ñiquén
+comuna_10,10,Pemuco
+comuna_10,11,Pinto
+comuna_10,12,Portezuelo
+comuna_10,13,Quillón
+comuna_10,14,Quirihue
+comuna_10,15,Ránquil
+comuna_10,16,San Carlos
+comuna_10,17,San Fabián
+comuna_10,18,San Ignacio
+comuna_10,19,San Nicolás
+comuna_10,20,Treguaco
+comuna_10,21,Yungay
+comuna_10,-888,No sabe
+comuna_11,1,Alto Biobío
+comuna_11,2,Antuco
+comuna_11,3,Arauco
+comuna_11,4,Cabrero
+comuna_11,5,Cañete
+comuna_11,6,Chiguayante
+comuna_11,7,Concepción
+comuna_11,8,Contulmo
+comuna_11,9,Coronel
+comuna_11,10,Curanilahue
+comuna_11,11,Florida
+comuna_11,12,Hualpén
+comuna_11,13,Hualqui
+comuna_11,14,Laja
+comuna_11,15,Lebu
+comuna_11,16,Los Álamos
+comuna_11,17,Los Ángeles
+comuna_11,18,Lota
+comuna_11,19,Mulchén
+comuna_11,20,Nacimiento
+comuna_11,21,Negrete
+comuna_11,22,Penco
+comuna_11,23,Quilaco
+comuna_11,24,Quilleco
+comuna_11,25,San Pedro de la Paz
+comuna_11,26,San Rosendo
+comuna_11,27,Santa Bárbara
+comuna_11,28,Santa Juana
+comuna_11,29,Talcahuano
+comuna_11,30,Tirúa
+comuna_11,31,Tomé
+comuna_11,32,Tucapel
+comuna_11,33,Yumbel
+comuna_11,-888,No sabe
+comuna_12,1,Angol
+comuna_12,2,Carahue
+comuna_12,3,Collipulli
+comuna_12,4,Cunco
+comuna_12,5,Curacautín
+comuna_12,6,Curarrehue
+comuna_12,7,Ercilla
+comuna_12,8,Freire
+comuna_12,9,Galvarino
+comuna_12,10,Gorbea
+comuna_12,11,Lautaro
+comuna_12,12,Loncoche
+comuna_12,13,Lonquimay
+comuna_12,14,Los Sauces
+comuna_12,15,Lumaco
+comuna_12,16,Melipeuco
+comuna_12,17,Nueva Imperial
+comuna_12,18,Padre Las Casas
+comuna_12,19,Perquenco
+comuna_12,20,Pitrufquén
+comuna_12,21,Pucón
+comuna_12,22,Purén
+comuna_12,23,Renaico
+comuna_12,24,Saavedra
+comuna_12,25,Temuco
+comuna_12,26,Teodoro Schmidt
+comuna_12,27,Toltén
+comuna_12,28,Traiguén
+comuna_12,29,Victoria
+comuna_12,30,Vilcún
+comuna_12,31,Villarrica
+comuna_12,-888,No sabe
+comuna_13,1,Corral
+comuna_13,2,Futrono
+comuna_13,3,La Unión
+comuna_13,4,Lago Ranco
+comuna_13,5,Lanco
+comuna_13,6,Los Lagos
+comuna_13,7,Mariquina
+comuna_13,8,Máfil
+comuna_13,9,Paillaco
+comuna_13,10,Panguipulli
+comuna_13,11,Río Bueno
+comuna_13,12,Valdivia
+comuna_13,-888,No sabe
+comuna_14,1,Ancud
+comuna_14,2,Calbuco
+comuna_14,3,Castro
+comuna_14,4,Chaitén
+comuna_14,5,Chonchi
+comuna_14,6,Cochamó
+comuna_14,7,Curaco de Vélez
+comuna_14,8,Dalcahue
+comuna_14,9,Fresia
+comuna_14,10,Frutillar
+comuna_14,11,Futaleufú
+comuna_14,12,Hualaihué
+comuna_14,13,Llanquihue
+comuna_14,14,Los Muermos
+comuna_14,15,Maullín
+comuna_14,16,Osorno
+comuna_14,17,Palena
+comuna_14,18,Puerto Montt
+comuna_14,19,Puerto Octay
+comuna_14,20,Puerto Varas
+comuna_14,21,Puqueldón
+comuna_14,22,Purranque
+comuna_14,23,Puyehue
+comuna_14,24,Queilén
+comuna_14,25,Quellón
+comuna_14,26,Quemchi
+comuna_14,27,Quinchao
+comuna_14,28,Río Negro
+comuna_14,29,San Juan de la Costa
+comuna_14,30,San Pablo
+comuna_14,-888,No sabe
+comuna_15,1,Aysén
+comuna_15,2,Chile Chico
+comuna_15,3,Cisnes
+comuna_15,4,Cochrane
+comuna_15,5,Coyhaique
+comuna_15,6,Guaitecas
+comuna_15,7,Lago Verde
+comuna_15,8,O’Higgins
+comuna_15,9,Río Ibáñez
+comuna_15,10,Tortel
+comuna_15,-888,No sabe
+comuna_16,1,Antártica
+comuna_16,2,Cabo de Hornos
+comuna_16,3,Laguna Blanca
+comuna_16,4,Porvenir
+comuna_16,5,Primavera
+comuna_16,6,Puerto Natales
+comuna_16,7,Punta Arenas
+comuna_16,8,Río Verde
+comuna_16,9,San Gregorio
+comuna_16,10,Timaukel
+comuna_16,11,Torres del Paine
+comuna_16,-888,No sabe
+jerarquia,1,"`r ifelse(is.na(person_name01) || person_name01 == """", """", person_name01)`"
+jerarquia,2,"`r ifelse(is.na(person_name02) || person_name02 == """", """", person_name02)`"
+jerarquia,3,"`r ifelse(is.na(person_name03) || person_name03 == """", """", person_name03)`"
+jerarquia,4,"`r ifelse(is.na(person_name04) || person_name04 == """", """", person_name04)`"
+jerarquia,5,"`r ifelse(is.na(person_name05) || person_name05 == """", """", person_name05)`"
+jerarquia,6,"`r ifelse(is.na(person_name06) || person_name06 == """", """", person_name06)`"
+jerarquia,7,"`r ifelse(is.na(person_name07) || person_name07 == """", """", person_name07)`"
+jerarquia,8,"`r ifelse(is.na(person_name08) || person_name08 == """", """", person_name08)`"
+jerarquia,9,"`r ifelse(is.na(person_name09) || person_name09 == """", """", person_name09)`"
+jerarquia,10,"`r ifelse(is.na(person_name10) || person_name10 == """", """", person_name10)`"
+jerarquia,11,"`r ifelse(is.na(person_name11) || person_name11 == """", """", person_name11)`"
+jerarquia,12,"`r ifelse(is.na(person_name12) || person_name12 == """", """", person_name12)`"
+jerarquia,13,"`r ifelse(is.na(person_name13) || person_name13 == """", """", person_name13)`"
+jerarquia,14,"`r ifelse(is.na(person_name14) || person_name14 == """", """", person_name14)`"
+jerarquia,15,"`r ifelse(is.na(person_name15) || person_name15 == """", """", person_name15)`"
+jerarquia,16,"`r ifelse(is.na(person_name16) || person_name16 == """", """", person_name16)`"
+jerarquia,17,"`r ifelse(is.na(person_name17) || person_name17 == """", """", person_name17)`"
+jerarquia,18,"`r ifelse(is.na(person_name18) || person_name18 == """", """", person_name18)`"
+jerarquia,19,"`r ifelse(is.na(person_name19) || person_name19 == """", """", person_name19)`"
+jerarquia,20,"`r ifelse(is.na(person_name20) || person_name20 == """", """", person_name20)`"
+si_no,1,Sí
+si_no,2,No
+si_no,-888,No sabe
+dependencia,1,Pública
+dependencia,2,Privada con fines de lucro
+dependencia,3,"Privada sin fines de lucro (ONG, fundación, corporación)"
+dependencia,4,Comunitaria o religiosa
+dependencia,-888,No sabe
+tipo_cuidado,1,Educación
+tipo_cuidado,2,Atención de salud
+tipo_cuidado,3,Apoyo socioemocional o psicológico
+tipo_cuidado,4,"Alimentación (almuerzo, colaciones)"
+tipo_cuidado,5,"Actividades recreativas, deportivas o culturales"
+tipo_cuidado,6,Supervisión durante el día
+tipo_cuidado,7,Otro
+tipo_cuidado,-888,No sabe
+frecuencia_atencion,1,Menos de una vez por semana
+frecuencia_atencion,2,Una vez por semana
+frecuencia_atencion,3,Varias veces por semana (2-4 días)
+frecuencia_atencion,4,Casi todos los días (5-6 días)
+frecuencia_atencion,5,Todos los días
+frecuencia_atencion,-888,No sabe
+horas_atencion,1,Menos de 2 horas
+horas_atencion,2,Entre 2 y 4 horas
+horas_atencion,3,Entre 4 y 8 horas
+horas_atencion,4,Más de 8 horas
+horas_atencion,-888,No sabe
