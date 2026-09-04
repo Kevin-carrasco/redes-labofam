@@ -1,5 +1,35 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Manual Metodológico redes Labofam",
+    "section": "",
+    "text": "Presentación\nLa Encuesta del Núcleo Milenio en Política Laboral y Vida Familiar y Colectiva (LABOFAM)",
+    "crumbs": [
+      "Presentación"
+    ]
+  },
+  {
+    "objectID": "codebook/codebook.html",
+    "href": "codebook/codebook.html",
+    "title": "1  Libro de códigos",
+    "section": "",
+    "text": "1.1 Instrucciones\nEl Libro de Códigos que se presentan en la siguiente sección corresponden a una herramienta interactiva que busca presentar de manera eficiente información respecto a las variables que componen la base de datos.\nEl libro muestra el código de cada variable, la etiqueta asociada a la variable con la redacción del ítem, y las categorías de respuesta y códigos asociados. Estas corresponden a tres columnas del libro de códigos denominadas name, label y value_label, respectivamente.\nSe puede hacer uso del buscador que se encuentra al principio del libro para encontrar información de manera más rápida. También se pueden usar los buscadores por cada columna, los cuales irán filtrando los datos que contengan el término de búsqueda.\nIncluimos etiquetas de variables en el Libro de Códigos, pero no en las bases de datos. El equipo de investigación las diseñó con la intención de describir brevemente el fenómeno o dimensión a medir. La redacción de la pregunta sigue a las etiquetas, incluyendo códigos y categorías de respuesta. En la construcción de la base de datos, ingresamos solo los códigos de respuesta como valores numéricos.\nEn la columna value_labels se muestran las categorías de respuesta de cada variable. No obstante, si la variable es numérica o de respuesta abierta (texto), la casilla se mostrará en blanco, ya que no hay ninguna categoría que mostrar. También puede ocurrir el caso que la variable sea numérica, pero tenga disponibles las categorías “88. No Sabe” y “99. No Responde”. En estos casos sólo se visualizarán ambas categorías en el libro de código.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Libro de códigos</span>"
+    ]
+  },
+  {
+    "objectID": "codebook/codebook.html#libro-de-códigos",
+    "href": "codebook/codebook.html#libro-de-códigos",
+    "title": "1  Libro de códigos",
+    "section": "\n1.2 Libro de códigos",
+    "text": "1.2 Libro de códigos",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Libro de códigos</span>"
+    ]
+  },
+  {
     "objectID": "reporte_descriptivo_redes.html",
     "href": "reporte_descriptivo_redes.html",
     "title": "\n2  Redes de cuidado: reporte descriptivo\n",
@@ -10,11 +40,11 @@
     ]
   },
   {
-    "objectID": "reporte_descriptivo_redes.html#tamaño-cuántas-manos-sostienen-a-un-niño",
-    "href": "reporte_descriptivo_redes.html#tamaño-cuántas-manos-sostienen-a-un-niño",
+    "objectID": "reporte_descriptivo_redes.html#tamaño",
+    "href": "reporte_descriptivo_redes.html#tamaño",
     "title": "\n2  Redes de cuidado: reporte descriptivo\n",
-    "section": "\n6.1 Tamaño: cuántas manos sostienen a un niño",
-    "text": "6.1 Tamaño: cuántas manos sostienen a un niño\nLas 60 redes reúnen 231 personas nominadas. El tamaño promedio es de 3,9 personas (mediana 4), con un rango que va de 1 a 8.\n\n\n\n\n\n\n\nFigura 6.1\n\n\n\n\nLa concentración en tres y cuatro personas (68,3% de los casos) es el hallazgo más elocuente de esta sección. Pese a que el instrumento admitía hasta veinte nombres y fijaba un umbral mínimo de una hora al mes, las redes efectivamente declaradas son pequeñas y densamente familiares. No estamos ante comunidades de cuidado extensas, sino ante núcleos reducidos que absorben la totalidad de la demanda. Este es el rasgo característico de los regímenes de cuidado familistas: la ausencia de una oferta pública robusta no se traduce en solidaridades comunitarias amplias, sino en la intensificación del trabajo de unas pocas personas, casi siempre emparentadas.",
+    "section": "\n6.1 Tamaño",
+    "text": "6.1 Tamaño\nLas 60 redes reúnen 231 personas nominadas. El tamaño promedio es de 3,9 personas (mediana 4), con un rango que va de 1 a 8.\n\n\n\n\n\n\n\nFigura 6.1\n\n\n\n\nLa concentración en tres y cuatro personas (68,3% de los casos) es el hallazgo más elocuente de esta sección. Pese a que el instrumento admitía hasta veinte nombres, las redes efectivamente declaradas son pequeñas y densamente familiares.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Redes de cuidado: reporte descriptivo</span>"
     ]
@@ -40,11 +70,11 @@
     ]
   },
   {
-    "objectID": "reporte_descriptivo_redes.html#territorio-la-geografía-del-cuidado",
-    "href": "reporte_descriptivo_redes.html#territorio-la-geografía-del-cuidado",
+    "objectID": "reporte_descriptivo_redes.html#territorio",
+    "href": "reporte_descriptivo_redes.html#territorio",
     "title": "\n2  Redes de cuidado: reporte descriptivo\n",
-    "section": "\n6.4 Territorio: la geografía del cuidado",
-    "text": "6.4 Territorio: la geografía del cuidado\n\n\n\nDistribución territorial de las personas cuidadoras\n\nRegión de residencia\nn\n%\n\n\n\nRegión Metropolitana de Santiago\n129\n55.8\n\n\nValparaíso\n48\n20.8\n\n\nMaule\n43\n18.6\n\n\nÑuble\n9\n3.9\n\n\nBiobío\n2\n0.9\n\n\n\n\n\nLas redes se concentran en la Región Metropolitana, seguida de Valparaíso y el Maule. Más informativo que la distribución regional es el dato de proximidad inmediata: 66,1% de las personas nominadas (excluida la primera de cada roster, que corresponde al entrevistado o entrevistada) reside en la misma comuna que quien encabeza la red. El cuidado cotidiano es un fenómeno de vecindad: se organiza en el radio de un trayecto corto, y esa restricción espacial explica en buena medida por qué las redes son pequeñas.",
+    "section": "\n6.4 Territorio",
+    "text": "6.4 Territorio\n\n\n\nDistribución territorial de las personas cuidadoras\n\nRegión de residencia\nn\n%\n\n\n\nRegión Metropolitana de Santiago\n129\n55.8\n\n\nValparaíso\n48\n20.8\n\n\nMaule\n43\n18.6\n\n\nÑuble\n9\n3.9\n\n\nBiobío\n2\n0.9\n\n\n\n\n\nLas redes se concentran en la Región Metropolitana, seguida de Valparaíso y el Maule. Más informativo que la distribución regional es el dato de proximidad inmediata: 66,1% de las personas nominadas (excluida la primera de cada red, que corresponde al entrevistado o entrevistada) reside en la misma comuna que quien encabeza la red.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Redes de cuidado: reporte descriptivo</span>"
     ]
@@ -87,36 +117,6 @@
     "text": "7.4 Jerarquía del cuidado\n\n\n\nSexo de la persona ubicada en el primer lugar de la jerarquía de cuidado\n\nSexo del cuidador/a principal\nn\n%\n\n\n\nMujer\n50\n83.3\n\n\nHombre\n10\n16.7\n\n\n\n\n\n\nVínculo de la persona ubicada en el primer lugar de la jerarquía\n\nVínculo del cuidador/a principal\nn\n%\n\n\n\nPadre/madre corresidente\n53\n88.3\n\n\nPareja del padre/madre corresidente\n2\n3.3\n\n\nOtro/a familiar no corresidente\n2\n3.3\n\n\nPadre/madre no corresidente\n1\n1.7\n\n\nAbuelo/a corresidente\n1\n1.7\n\n\nAbuelo/a no corresidente\n1\n1.7\n\n\n\n\n\nEl ejercicio de ordenamiento –que pide jerarquizar a las personas mencionadas según tiempo, responsabilidad y regularidad– muestra que un 83,3% de las personas situadas en el primer lugar son mujeres.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Redes de cuidado: reporte descriptivo</span>"
-    ]
-  },
-  {
-    "objectID": "reporte_descriptivo_redes.html#tamaño",
-    "href": "reporte_descriptivo_redes.html#tamaño",
-    "title": "\n2  Redes de cuidado: reporte descriptivo\n",
-    "section": "\n6.1 Tamaño",
-    "text": "6.1 Tamaño\nLas 60 redes reúnen 231 personas nominadas. El tamaño promedio es de 3,9 personas (mediana 4), con un rango que va de 1 a 8.\n\n\n\n\n\n\n\nFigura 6.1\n\n\n\n\nLa concentración en tres y cuatro personas (68,3% de los casos) es el hallazgo más elocuente de esta sección. Pese a que el instrumento admitía hasta veinte nombres, las redes efectivamente declaradas son pequeñas y densamente familiares.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Redes de cuidado: reporte descriptivo</span>"
-    ]
-  },
-  {
-    "objectID": "reporte_descriptivo_redes.html#territorio",
-    "href": "reporte_descriptivo_redes.html#territorio",
-    "title": "\n2  Redes de cuidado: reporte descriptivo\n",
-    "section": "\n6.4 Territorio",
-    "text": "6.4 Territorio\n\n\n\nDistribución territorial de las personas cuidadoras\n\nRegión de residencia\nn\n%\n\n\n\nRegión Metropolitana de Santiago\n129\n55.8\n\n\nValparaíso\n48\n20.8\n\n\nMaule\n43\n18.6\n\n\nÑuble\n9\n3.9\n\n\nBiobío\n2\n0.9\n\n\n\n\n\nLas redes se concentran en la Región Metropolitana, seguida de Valparaíso y el Maule. Más informativo que la distribución regional es el dato de proximidad inmediata: 66,1% de las personas nominadas (excluida la primera de cada red, que corresponde al entrevistado o entrevistada) reside en la misma comuna que quien encabeza la red.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Redes de cuidado: reporte descriptivo</span>"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Manual Metodológico redes Labofam",
-    "section": "",
-    "text": "Presentación\nLa Encuesta del Núcleo Milenio en Política Laboral y Vida Familiar y Colectiva (LABOFAM)",
-    "crumbs": [
-      "Presentación"
     ]
   }
 ]
