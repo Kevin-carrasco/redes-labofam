@@ -1,0 +1,48 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Manual Metodológico redes Labofam"
+  author: "Equipo LABOFAM"
+  date: 04/09/2026
+  reader-mode: true
+  page-footer:
+    left: |
+      Núcleo Milenio en Política Laboral y Vida Familiar y Colectiva (LABOFAM).
+
+    right: |
+      Este libro se construyó con <a href="https://quarto.org/">Quarto</a>.
+  page-navigation: true
+  cover-image: labofam.svg
+  favicon: labofam.svg
+  repo-url: https://github.com/kevin-carrasco/labofam-codebook
+  repo-branch: main
+  chapters:
+    - index.qmd
+#    - 01-antecedents.qmd
+#    - 02-database.qmd
+    - codebook/codebook.qmd
+    - reporte_descriptivo_redes.qmd
+  search:
+    location: sidebar
+    type: textbox
+  sidebar:
+    search: true
+    style: docked
+    pinned: false
+
+
+format:
+  html:
+    theme:
+      - cosmo
+      - labofam.scss
+    code-link: true
+
+editor: visual
+lang: es
+
+bibliography: "input/bib/manual-metod.bib"
+csl: "input/bib/apa6.csl"
+

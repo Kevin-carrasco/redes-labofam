@@ -1,0 +1,151 @@
+---
+format: html
+editor: source
+---
+
+# Libro de códigos {#codebook}
+
+## Instrucciones
+
+El Libro de Códigos que se presentan en la siguiente sección corresponden a una herramienta interactiva que busca presentar de manera eficiente información respecto a las variables que componen la base de datos.
+
+El libro muestra el código de cada variable, la etiqueta asociada a la variable con la redacción del ítem, y las categorías de respuesta y códigos asociados. Estas corresponden a tres columnas del libro de códigos denominadas ***name, label*** y ***value_label***, respectivamente.
+
+Se puede hacer uso del buscador que se encuentra al principio del libro para encontrar información de manera más rápida. También se pueden usar los buscadores por cada columna, los cuales irán filtrando los datos que contengan el término de búsqueda.
+
+Incluimos etiquetas de variables en el Libro de Códigos, pero no en las bases de datos. El equipo de investigación las diseñó con la intención de describir brevemente el fenómeno o dimensión a medir. La redacción de la pregunta sigue a las etiquetas, incluyendo códigos y categorías de respuesta. En la construcción de la base de datos, ingresamos solo los códigos de respuesta como valores numéricos.
+
+En la columna ***value_labels*** se muestran las categorías de respuesta de cada variable. No obstante, si la variable es numérica o de respuesta abierta (texto), la casilla se mostrará en blanco, ya que no hay ninguna categoría que mostrar. También puede ocurrir el caso que la variable sea numérica, pero tenga disponibles las categorías "88. No Sabe" y "99. No Responde". En estos casos sólo se visualizarán ambas categorías en el libro de código.
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = F,
+                      warning = F,
+                      error = F, 
+                      message = F) 
+```
+
+```{r packages}
+if (!require("pacman")) install.packages("pacman")
+
+pacman::p_load(tidyverse,
+               here, 
+               codebook,
+               sjlabelled,
+               readr)
+
+options(scipen=999)
+rm(list = ls())
+```
+
+```{r data-label, include=FALSE}
+#load(file = here("input", "data", "original", "cais.RData"))
+survey <- read_csv(here("variables", "survey.csv"))
+choices <- read_csv(here("variables", "choices.csv"))
+
+survey <- survey %>%
+  mutate(label = stringr::str_replace(as.character(label), "^\\*\\*(.*?)\\*\\*$", "\\1"))
+
+# Crear un nuevo data frame vacío (si no tienes valores iniciales en 'df')
+df <- data.frame(matrix(ncol = nrow(survey), nrow = 0))
+colnames(df) <- survey$name
+
+# Filtrar y seleccionar columnas específicas del DataFrame
+df <- df %>%
+  dplyr::select(-starts_with("choice"),-starts_with("instruction"),
+                -starts_with("inicio"), -starts_with("mod"),
+                -starts_with("head"), -starts_with("vig"), 
+                -starts_with("note"), -starts_with("count"), 
+                -starts_with("text"), -starts_with("persona"),  
+                -maximum_listed, -starts_with("submit"), -starts_with("inst")
+                )
+
+
+# Paso 2: Filtrar 'labels' para incluir solo columnas que existen en 'df'
+filtered_labels <- survey %>%
+  filter(name %in% colnames(df))
+
+
+# Asignar las etiquetas como atributos solo para columnas existentes
+for (i in seq_along(filtered_labels$name)) {
+  attr(df[[filtered_labels$name[i]]], "label") <- as.character(filtered_labels$label[i]) # Asegurar que sean strings
+}
+```
+
+```{r data-levels, include=FALSE}
+choice_cols <- grep("^choice\\d+$", names(survey), value = TRUE)
+all_lists   <- unique(choices$list_name)
+
+match_list_in_type <- function(type_string, lists = all_lists) {
+  if (is.na(type_string) || !nzchar(trimws(type_string))) return(NA_character_)
+  t <- stringr::str_to_lower(type_string)
+
+  # contención: list_name está dentro de type
+  hits <- lists[stringr::str_detect(t, stringr::fixed(stringr::str_to_lower(lists)))]
+
+  if (length(hits) == 0) return(NA_character_)
+  # si hay más de un match, toma el más largo (evita colisiones por subcadenas)
+  hits[which.max(nchar(hits))]
+}
+
+survey2 <- survey %>%
+  mutate(
+    list_match = purrr::map_chr(type, match_list_in_type)
+  )
+
+# Solo variables que existen en df
+vars_to_label <- intersect(names(df), survey2$name)
+
+for (v in vars_to_label) {
+  row_i <- which(survey2$name == v)[1]
+  this_list <- survey2$list_match[row_i]
+
+  # Caso A: la lista viene desde choices.csv (porque list_name está contenido en type)
+  if (!is.na(this_list)) {
+
+    ch <- choices %>%
+      filter(list_name == this_list) %>%
+      transmute(
+        level = suppressWarnings(as.numeric(as.character(name))),
+        label = as.character(label)
+      )
+
+    # levels numéricos 
+    levels_vec <- ch$level
+
+    # vector tipo: c(`1`="Texto", `2`="Texto", ...)
+    labels_vec <- stats::setNames(ch$label, as.character(ch$level))
+
+    df[[v]] <- set_labels(df[[v]], levels = levels_vec, labels = labels_vec)
+
+  } else {
+    # Caso B: alternativas embebidas en survey.csv (choice1..choice9)
+    inline_opts <- survey2[row_i, choice_cols] %>%
+      unlist(use.names = FALSE) %>%
+      as.character() %>%
+      purrr::discard(~ is.na(.x) || !nzchar(trimws(.x)))
+
+    if (length(inline_opts) > 0) {
+      levels_vec <- seq_along(inline_opts)
+      labels_vec <- stats::setNames(inline_opts, as.character(levels_vec))
+
+      df[[v]] <- set_labels(df[[v]], levels = levels_vec, labels = labels_vec)
+    }
+  }
+}
+
+# (Opcional) chequeo rápido: variables que no recibieron value labels
+vars_without_values <- vars_to_label[
+  purrr::map_lgl(df[vars_to_label], ~ is.null(attr(.x, "labels")))
+]
+```
+
+
+
+## Libro de códigos
+
+```{r code1, echo=FALSE}
+codebook:::label_browser_static(df)
+```
+
+

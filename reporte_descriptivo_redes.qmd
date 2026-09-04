@@ -1,0 +1,684 @@
+---
+title: "Redes de cuidado: reporte descriptivo"
+subtitle: "Instrumento de redes sociales en cuidado --- LABOFAM"
+lang: es
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Contenidos"
+    number-sections: true
+    code-fold: true
+    code-summary: "Ver código"
+    theme: cosmo
+    fig-width: 7
+    fig-height: 4.2
+    df-print: kable
+editor: source
+execute:
+  warning: false
+  message: false
+  echo: false
+params:
+  archivo_datos: "input/data/proc/redes 2026-09-02.RData"
+  variables: "codebook/variables"
+---
+
+```{r setup}
+if (!require("pacman")) install.packages("pacman")
+
+pacman::p_load(tidyverse,
+               here,
+               readxl,
+               knitr,
+               kableExtra,
+               scales)
+
+options(scipen = 999)
+
+theme_set(
+  theme_minimal(base_size = 11) +
+    theme(panel.grid.minor = element_blank(),
+          plot.title.position = "plot",
+          plot.title = element_text(face = "bold"),
+          legend.position = "bottom")
+)
+
+col_principal <- "#2C6E8F"
+col_secundario <- "#C46B4A"
+```
+
+```{r datos}
+load(here::here(params$archivo_datos))
+datos <- redes
+opciones <- readr::read_csv(
+  here::here(params$variables, "choices.csv"),
+  col_types = readr::cols(.default = readr::col_character())
+)
+
+preguntas <- readr::read_csv(
+  here::here(params$variables, "survey.csv"),
+  col_types = readr::cols(.default = readr::col_character())
+)
+
+# --- Utilidades de etiquetado -------------------------------------------------
+
+etiquetas <- function(lista) {
+  opciones %>%
+    dplyr::filter(list_name == lista) %>%
+    dplyr::transmute(codigo = suppressWarnings(as.numeric(name)),
+                     etiqueta = label) %>%
+    dplyr::filter(!is.na(codigo))
+}
+
+# -888 ("No sabe") se convierte en NA para el análisis y se contabiliza aparte
+etiquetar <- function(x, lista, excluir_ns = TRUE) {
+  ref <- etiquetas(lista)
+  if (excluir_ns) ref <- dplyr::filter(ref, codigo != -888)
+  factor(suppressWarnings(as.numeric(x)),
+         levels = ref$codigo,
+         labels = ref$etiqueta)
+}
+
+num <- function(x) {
+  x <- suppressWarnings(as.numeric(x))
+  ifelse(x == -888, NA_real_, x)
+}
+
+# Proporción de casos válidos que toman alguno de los códigos indicados
+prop_cod <- function(x, valores) {
+  x <- x[!is.na(x)]
+  if (length(x) == 0) return(NA_real_)
+  mean(x %in% valores)
+}
+
+tabla_frec <- function(x, etiqueta_col = "Categoría", ordenar = TRUE) {
+  d <- tibble::tibble(cat = x) %>% dplyr::filter(!is.na(cat))
+  d <- d %>%
+    dplyr::count(cat, name = "n") %>%
+    dplyr::mutate(pct = round(100 * n / sum(n), 1))
+  if (ordenar) d <- dplyr::arrange(d, dplyr::desc(n))
+  stats::setNames(d, c(etiqueta_col, "n", "%"))
+}
+
+mostrar <- function(tbl, caption = NULL) {
+  knitr::kable(tbl, caption = caption, digits = 1) %>%
+    kableExtra::kable_styling(full_width = FALSE,
+                              bootstrap_options = c("striped", "hover", "condensed"))
+}
+
+pc <- function(x) paste0(format(round(100 * x, 1), decimal.mark = ",", trim = TRUE), "%")
+n1 <- function(x) format(round(x, 1), decimal.mark = ",", trim = TRUE)
+```
+
+```{r estructura-larga}
+# --- Nivel 1: entrevistado/a y niño/a ----------------------------------------
+
+ninos <- datos %>%
+  dplyr::transmute(
+    id_entrevistado,
+    fecha = as.Date(fecha_aplicacion),
+    sexo_nino = etiquetar(sex_nino, "sex_list"),
+    edad_nino = num(edad_nino),
+    pais_nino = etiquetar(pais_nino, "pais")
+  )
+
+# --- Nivel 2: personas nominadas (roster de hasta 20 alter) ------------------
+
+vars_persona <- c("nombre", "sex", "edad", "educ", "pais", "region",
+                  "vinculo", "anio", "cuidado", "frecuencia", "horas")
+
+personas <- purrr::map_dfr(1:20, function(i) {
+  suf <- sprintf("P%02d", i)
+  cols <- paste0(vars_persona, "_", suf)
+  cols <- cols[cols %in% names(datos)]
+  out <- datos %>%
+    dplyr::select(id_entrevistado, dplyr::all_of(cols))
+  names(out) <- c("id_entrevistado", stringr::str_remove(cols, paste0("_", suf)))
+  out$posicion <- i
+  jer <- sprintf("jerarquia%02d", i)
+  out$jerarquia <- if (jer %in% names(datos)) num(datos[[jer]]) else NA_real_
+  out
+}) %>%
+  dplyr::filter(!is.na(nombre)) %>%
+  dplyr::mutate(
+    sexo        = etiquetar(sex, "sex_list"),
+    educacion   = etiquetar(educ, "educacion"),
+    pais_nac    = etiquetar(pais, "pais"),
+    region_res  = etiquetar(region, "region"),
+    vinculo_lab = etiquetar(vinculo, "relacion"),
+    frecuencia_lab = etiquetar(frecuencia, "frecuencia"),
+    horas_lab      = etiquetar(horas, "horas"),
+    # copias numéricas: -888 pasa a NA
+    sex_n        = num(sex),
+    educ_n       = num(educ),
+    pais_n       = num(pais),
+    vinculo_n    = num(vinculo),
+    frecuencia_n = num(frecuencia),
+    horas_n      = num(horas),
+    edad = num(edad),
+    anio = num(anio)
+  ) %>%
+  dplyr::left_join(dplyr::select(ninos, id_entrevistado, edad_nino),
+                   by = "id_entrevistado")
+
+# Comuna de residencia: la lista de comunas depende de la región declarada
+comunas_ref <- opciones %>%
+  dplyr::filter(stringr::str_detect(list_name, "^comuna_\\d+$")) %>%
+  dplyr::transmute(lista = list_name,
+                   codigo = suppressWarnings(as.numeric(name)),
+                   comuna = label)
+
+comunas <- purrr::map_dfr(1:20, function(i) {
+  suf <- sprintf("P%02d", i)
+  cols <- paste0("comuna_", suf, "_", 1:16)
+  cols <- cols[cols %in% names(datos)]
+  if (length(cols) == 0) return(tibble::tibble())
+  datos %>%
+    dplyr::select(id_entrevistado, dplyr::all_of(cols)) %>%
+    tidyr::pivot_longer(-id_entrevistado, names_to = "col", values_to = "codigo") %>%
+    dplyr::filter(!is.na(codigo)) %>%
+    dplyr::mutate(posicion = i,
+                  lista = paste0("comuna_", stringr::str_extract(col, "\\d+$")),
+                  codigo = suppressWarnings(as.numeric(codigo)))
+}) %>%
+  dplyr::left_join(comunas_ref, by = c("lista", "codigo")) %>%
+  dplyr::select(id_entrevistado, posicion, comuna)
+
+personas <- personas %>%
+  dplyr::left_join(comunas, by = c("id_entrevistado", "posicion"))
+
+# --- Nivel 3: instituciones ---------------------------------------------------
+
+vars_inst <- c("institucion", "tipologia", "asistencia", "tipo_cuidado",
+               "frecuencia_atencion", "horas_atencion")
+
+instituciones <- purrr::map_dfr(1:20, function(i) {
+  suf <- sprintf("P%02d", i)
+  cols <- paste0(vars_inst, "_", suf)
+  cols <- cols[cols %in% names(datos)]
+  if (length(cols) == 0) return(tibble::tibble())
+  out <- datos %>% dplyr::select(id_entrevistado, dplyr::all_of(cols))
+  names(out) <- c("id_entrevistado", stringr::str_remove(cols, paste0("_", suf)))
+  dep <- sprintf("dependencia_IN%02d", i)
+  out$dependencia <- if (dep %in% names(datos)) datos[[dep]] else NA
+  out$posicion <- i
+  out
+}) %>%
+  dplyr::filter(!is.na(institucion)) %>%
+  dplyr::mutate(
+    dependencia_lab = etiquetar(dependencia, "dependencia"),
+    frecuencia_lab  = etiquetar(frecuencia_atencion, "frecuencia_atencion"),
+    horas_lab       = etiquetar(horas_atencion, "horas_atencion"),
+    anio_ingreso    = dplyr::if_else(num(asistencia) >= 2000, num(asistencia), NA_real_),
+    tipologia       = num(tipologia)
+  )
+
+# --- Nivel 4: díadas entre personas nominadas --------------------------------
+
+lazos <- datos %>%
+  dplyr::select(id_entrevistado, dplyr::starts_with("contact")) %>%
+  tidyr::pivot_longer(-id_entrevistado, names_to = "par", values_to = "conoce") %>%
+  dplyr::filter(!is.na(conoce)) %>%
+  dplyr::mutate(conoce = num(conoce))
+
+cercania <- datos %>%
+  dplyr::select(id_entrevistado, dplyr::starts_with("fuerza")) %>%
+  tidyr::pivot_longer(-id_entrevistado, names_to = "par", values_to = "cercania") %>%
+  dplyr::filter(!is.na(cercania)) %>%
+  dplyr::mutate(cercania = num(cercania))
+
+# --- Indicadores agregados por caso ------------------------------------------
+
+red_ego <- personas %>%
+  dplyr::count(id_entrevistado, name = "tamano_red") %>%
+  dplyr::left_join(
+    instituciones %>% dplyr::count(id_entrevistado, name = "n_instituciones"),
+    by = "id_entrevistado"
+  ) %>%
+  dplyr::left_join(
+    lazos %>%
+      dplyr::group_by(id_entrevistado) %>%
+      dplyr::summarise(pares = dplyr::n(),
+                       lazos_si = sum(conoce == 1, na.rm = TRUE),
+                       densidad = lazos_si / pares, .groups = "drop"),
+    by = "id_entrevistado"
+  ) %>%
+  dplyr::left_join(
+    cercania %>%
+      dplyr::group_by(id_entrevistado) %>%
+      dplyr::summarise(cercania_media = mean(cercania, na.rm = TRUE), .groups = "drop"),
+    by = "id_entrevistado"
+  ) %>%
+  dplyr::mutate(n_instituciones = tidyr::replace_na(n_instituciones, 0)) %>%
+  dplyr::left_join(ninos, by = "id_entrevistado")
+
+n_casos <- nrow(datos)
+n_alter <- nrow(personas)
+n_inst <- nrow(instituciones)
+```
+
+
+
+# Presentación
+
+-
+
+# Estructura de los datos y tratamiento de la ausencia de información {#sec-na}
+
+```{r estructura-na}
+cobertura <- personas %>%
+  dplyr::summarise(dplyr::across(
+    c(sexo, edad, educacion, pais_nac, region_res, vinculo_lab,
+      frecuencia_lab, horas_lab, cuidado, anio),
+    ~ sum(is.na(.x))
+  )) %>%
+  tidyr::pivot_longer(dplyr::everything(),
+                      names_to = "Variable", values_to = "Casos sin dato") %>%
+  dplyr::mutate(`Alter declarados` = n_alter,
+                `%` = round(100 * `Casos sin dato` / n_alter, 1)) %>%
+  dplyr::select(Variable, `Alter declarados`, `Casos sin dato`, `%`)
+
+# Conteo de respuestas "No sabe" (-888) en el nivel de personas nominadas
+contar_ns <- function(x) sum(suppressWarnings(as.numeric(x)) == -888, na.rm = TRUE)
+
+ns_personas <- personas %>%
+  dplyr::summarise(
+    educ       = contar_ns(educ),
+    pais       = contar_ns(pais),
+    frecuencia = contar_ns(frecuencia),
+    sex        = contar_ns(sex),
+    cuidado    = sum(stringr::str_detect(cuidado, "-888"), na.rm = TRUE)
+  ) %>%
+  tidyr::pivot_longer(dplyr::everything(),
+                      names_to = "Variable", values_to = "Respuestas 'No sabe' (-888)")
+
+ns_educ <- ns_personas %>%
+  dplyr::filter(Variable == "educ") %>%
+  dplyr::pull(`Respuestas 'No sabe' (-888)`)
+
+fuera_rango_asistencia <- instituciones %>%
+  dplyr::summarise(n = sum(num(asistencia) < 2000, na.rm = TRUE)) %>%
+  dplyr::pull(n)
+```
+
+La base contiene `r ncol(datos)` columnas para `r n_casos` casos, pero esa
+amplitud es aparente. El cuestionario está organizado como una **red de
+posiciones fijas**: reserva veinte espacios para personas y veinte para
+instituciones, con sus respectivos bloques de atributos y `r sum(stringr::str_detect(names(datos), "^contact"))`
+columnas de díadas. Cuando un entrevistado nomina cuatro personas, las dieciséis
+posiciones restantes quedan vacías.
+
+Esto tiene una consecuencia interpretativa importante: **la enorme mayoría de los
+`NA` de la base no son no-respuesta, sino ausencia estructural**. Una vez que se
+reconstruye la base en formato largo --un registro por persona nominada y uno por
+institución-- la cobertura es prácticamente total.
+
+```{r tabla-na}
+mostrar(cobertura,
+        caption = "Datos faltantes en el nivel de personas nominadas, una vez descartadas las posiciones no utilizadas del roster")
+
+mostrar(ns_personas,
+        caption = "Respuestas 'No sabe' (-888) en el nivel de personas nominadas")
+```
+
+La no-respuesta sustantiva se codifica de manera explícita como `-888` ("No
+sabe") y es marginal: se concentra en el nivel educativo de terceros
+(`r ns_educ` casos)
+y en unas pocas menciones aisladas de país de nacimiento y frecuencia. 
+
+# El estudio
+
+```{r ninos}
+resumen_ninos <- ninos %>%
+  dplyr::summarise(
+    `Edad media` = mean(edad_nino, na.rm = TRUE),
+    `Mediana` = median(edad_nino, na.rm = TRUE),
+    `Mínimo` = min(edad_nino, na.rm = TRUE),
+    `Máximo` = max(edad_nino, na.rm = TRUE)
+  )
+```
+
+El levantamiento reúne `r n_casos` casos, aplicados entre el
+`r format(min(ninos$fecha, na.rm = TRUE), "%d-%m-%Y")` y el
+`r format(max(ninos$fecha, na.rm = TRUE), "%d-%m-%Y")`. Cada caso
+corresponde a un niño o niña --el o la menor del hogar cuando hay más de uno-- y
+a la red de cuidado construida en torno a él o ella.
+
+```{r tabla-ninos}
+mostrar(tabla_frec(ninos$sexo_nino, "Sexo del niño/a"),
+        caption = "Distribución por sexo")
+mostrar(resumen_ninos, caption = "Edad en años cumplidos")
+```
+
+La muestra cubre prácticamente toda la infancia previa a la adolescencia
+(`r min(ninos$edad_nino, na.rm = TRUE)` a `r max(ninos$edad_nino, na.rm = TRUE)`
+años, con una media de `r n1(mean(ninos$edad_nino, na.rm = TRUE))`).
+
+```{r fig-edad}
+ggplot(ninos, aes(x = edad_nino)) +
+  geom_histogram(binwidth = 1, fill = col_principal, colour = "white") +
+  scale_x_continuous(breaks = seq(0, 14, 2)) +
+  labs(title = "Edad de los niños y niñas",
+       x = "Años cumplidos", y = "Casos")
+```
+
+Todos los niños y niñas de la muestra nacieron en Chile, de modo que la
+diversidad migratoria que aparece más adelante corresponde a la generación adulta
+de la red: familias en las que los hijos son chilenos y parte de quienes los
+cuidan no lo son.
+
+# La red de personas que cuidan
+
+## Tamaño
+
+```{r tamano}
+resumen_tamano <- red_ego %>%
+  dplyr::summarise(
+    `Media` = mean(tamano_red),
+    `Mediana` = median(tamano_red),
+    `Mínimo` = min(tamano_red),
+    `Máximo` = max(tamano_red)
+  )
+```
+
+Las `r n_casos` redes reúnen `r n_alter` personas nominadas. El tamaño promedio
+es de `r n1(mean(red_ego$tamano_red))` personas (mediana
+`r median(red_ego$tamano_red)`), con un rango que va de
+`r min(red_ego$tamano_red)` a `r max(red_ego$tamano_red)`.
+
+```{r fig-tamano}
+ggplot(red_ego, aes(x = factor(tamano_red))) +
+  geom_bar(fill = col_principal) +
+  labs(title = "Tamaño de la red personal de cuidado",
+       subtitle = "Número de personas nominadas por caso",
+       x = "Personas nominadas", y = "Casos")
+```
+
+La concentración en tres y cuatro personas
+(`r pc(mean(red_ego$tamano_red %in% 3:4))` de los casos) es el hallazgo más
+elocuente de esta sección. Pese a que el instrumento admitía hasta veinte
+nombres, las redes efectivamente
+declaradas son **pequeñas y densamente familiares**.
+
+## Quiénes son: vínculo, sexo y generación
+
+```{r vinculo}
+tab_vinculo <- tabla_frec(personas$vinculo_lab, "Vínculo con el niño/a")
+```
+
+```{r fig-vinculo}
+personas %>%
+  dplyr::filter(!is.na(vinculo_lab)) %>%
+  dplyr::count(vinculo_lab) %>%
+  dplyr::mutate(pct = 100 * n / sum(n)) %>%
+  ggplot(aes(x = pct, y = reorder(vinculo_lab, pct))) +
+  geom_col(fill = col_principal) +
+  labs(title = "Vínculo de las personas cuidadoras con el niño/a",
+       x = "% de personas nominadas", y = NULL)
+```
+
+```{r tabla-vinculo}
+mostrar(tab_vinculo, caption = "Composición de la red por tipo de vínculo")
+```
+
+```{r cifras-vinculo}
+p_parental <- prop_cod(personas$vinculo_n, c(1, 2))
+p_abuelos  <- prop_cod(personas$vinculo_n, c(9, 10))
+p_remun    <- prop_cod(personas$vinculo_n, c(15, 16))
+p_extrafam <- prop_cod(personas$vinculo_n, c(13, 14))
+p_mujeres  <- prop_cod(personas$sex_n, 2)
+```
+
+Padres y madres concentran `r pc(p_parental)` de las
+nominaciones y abuelos y abuelas otro `r pc(p_abuelos)`. El cuidado remunerado
+--personas contratadas en el hogar o en otra casa-- representa apenas
+`r pc(p_remun)`, y el cuidado extrafamiliar no remunerado (vecinos, amistades de
+la familia) un `r pc(p_extrafam)`.
+
+```{r fig-sexo-vinculo}
+personas %>%
+  dplyr::filter(!is.na(sexo), !is.na(vinculo_lab)) %>%
+  dplyr::count(vinculo_lab, sexo) %>%
+  dplyr::group_by(vinculo_lab) %>%
+  dplyr::mutate(total = sum(n)) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(total >= 5) %>%
+  ggplot(aes(x = n, y = reorder(vinculo_lab, total), fill = sexo)) +
+  geom_col(position = "fill") +
+  scale_x_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("Hombre" = col_secundario, "Mujer" = col_principal)) +
+  labs(title = "Composición por sexo según tipo de vínculo",
+       subtitle = "Vínculos con al menos 5 menciones",
+       x = NULL, y = NULL, fill = NULL)
+```
+
+Las mujeres representan `r pc(p_mujeres)` de las personas nominadas. 
+
+```{r edad-alter}
+resumen_edad_alter <- personas %>%
+  dplyr::summarise(
+    `Media` = mean(edad, na.rm = TRUE),
+    `Mediana` = median(edad, na.rm = TRUE),
+    `Mínimo` = min(edad, na.rm = TRUE),
+    `Máximo` = max(edad, na.rm = TRUE)
+  )
+mostrar(resumen_edad_alter, caption = "Edad de las personas cuidadoras (años cumplidos)")
+```
+
+```{r fig-edad-alter}
+ggplot(dplyr::filter(personas, !is.na(edad)), aes(x = edad)) +
+  geom_histogram(binwidth = 5, fill = col_principal, colour = "white") +
+  labs(title = "Estructura etaria de las redes de cuidado",
+       x = "Años cumplidos", y = "Personas nominadas")
+```
+
+La distribución etaria es bimodal, con un núcleo en torno a los treinta y cuarenta
+años y un segundo grupo en torno a los sesenta.
+
+## Escolaridad y origen
+
+```{r educ-pais}
+mostrar(tabla_frec(personas$educacion, "Nivel educativo", ordenar = FALSE),
+        caption = "Máximo nivel educativo alcanzado por las personas cuidadoras")
+mostrar(tabla_frec(personas$pais_nac, "País de nacimiento"),
+        caption = "Origen nacional de las personas cuidadoras")
+```
+
+```{r cifras-educ}
+p_ter <- prop_cod(personas$educ_n, 4:8)
+p_mig <- 1 - prop_cod(personas$pais_n, 1)
+```
+
+Un `r pc(p_ter)` de las personas cuidadoras alcanzó educación terciaria (técnica
+o universitaria, completa o incompleta).
+
+La presencia migrante alcanza `r pc(p_mig)` de las nominaciones, con Venezuela
+como principal origen.
+
+## Territorio
+
+```{r territorio}
+mostrar(tabla_frec(personas$region_res, "Región de residencia"),
+        caption = "Distribución territorial de las personas cuidadoras")
+
+misma_comuna <- personas %>%
+  dplyr::group_by(id_entrevistado) %>%
+  dplyr::mutate(comuna_ref = comuna[posicion == min(posicion)][1]) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(posicion != 1, !is.na(comuna), !is.na(comuna_ref)) %>%
+  dplyr::summarise(p = mean(comuna == comuna_ref)) %>%
+  dplyr::pull(p)
+```
+
+Las redes se concentran en la Región Metropolitana, seguida de Valparaíso y el
+Maule. Más informativo que la distribución regional es el dato de proximidad
+inmediata: `r pc(misma_comuna)` de las personas nominadas (excluida la primera de
+cada red, que corresponde al entrevistado o entrevistada) reside en la misma
+comuna que quien encabeza la red.
+
+# Qué hacen
+
+## Tipos de cuidado
+
+```{r tipos-cuidado}
+tipos <- personas %>%
+  dplyr::select(id_entrevistado, posicion, cuidado) %>%
+  tidyr::separate_rows(cuidado, sep = ",\\s*") %>%
+  dplyr::mutate(codigo = suppressWarnings(as.numeric(cuidado))) %>%
+  dplyr::filter(!is.na(codigo), codigo != -888) %>%
+  dplyr::left_join(etiquetas("cuidado"), by = "codigo")
+
+tab_tipos <- tipos %>%
+  dplyr::count(etiqueta, name = "n") %>%
+  dplyr::mutate(`% de personas` = round(100 * n / n_alter, 1)) %>%
+  dplyr::arrange(dplyr::desc(n)) %>%
+  stats::setNames(c("Tipo de cuidado", "Menciones", "% de personas nominadas"))
+
+mostrar(tab_tipos,
+        caption = "Actividades de cuidado realizadas en el último mes (respuesta múltiple)")
+
+repertorio <- tipos %>%
+  dplyr::count(id_entrevistado, posicion, name = "n_tipos")
+```
+
+```{r fig-tipos}
+tipos %>%
+  dplyr::count(etiqueta) %>%
+  dplyr::mutate(pct = 100 * n / n_alter) %>%
+  ggplot(aes(x = pct, y = reorder(stringr::str_wrap(etiqueta, 42), pct))) +
+  geom_col(fill = col_principal) +
+  labs(title = "Actividades de cuidado en el último mes",
+       subtitle = "Porcentaje de personas nominadas que realizó cada actividad",
+       x = "% de personas nominadas", y = NULL)
+```
+
+Cada persona nominada realiza en promedio
+`r n1(mean(repertorio$n_tipos))` tipos distintos de cuidado. La supervisión y el
+juego encabezan la lista, seguidos de la alimentación y el cuidado corporal.
+
+## Frecuencia y horas
+
+```{r frecuencia-horas}
+mostrar(tabla_frec(personas$frecuencia_lab, "Frecuencia", ordenar = FALSE),
+        caption = "Frecuencia de participación en el cuidado durante el último mes")
+mostrar(tabla_frec(personas$horas_lab, "Horas por día", ordenar = FALSE),
+        caption = "Horas promedio de cuidado en los días de participación")
+```
+
+```{r fig-intensidad}
+personas %>%
+  dplyr::filter(!is.na(frecuencia_lab), !is.na(horas_lab)) %>%
+  dplyr::count(frecuencia_lab, horas_lab) %>%
+  ggplot(aes(x = frecuencia_lab, y = horas_lab, fill = n)) +
+  geom_tile(colour = "white") +
+  geom_text(aes(label = n), colour = "white", size = 3.2) +
+  scale_fill_gradient(low = "#A8C6D8", high = "#1F4E63") +
+  scale_x_discrete(labels = function(x) stringr::str_wrap(x, 14)) +
+  labs(title = "Intensidad del cuidado: frecuencia por horas diarias",
+       x = "Frecuencia de participación", y = "Horas por día", fill = "Personas") +
+  theme(legend.position = "right")
+```
+
+```{r cifras-intensidad}
+p_diario  <- prop_cod(personas$frecuencia_n, c(4, 5))
+p_esporad <- prop_cod(personas$frecuencia_n, c(1, 2))
+p_8h      <- prop_cod(personas$horas_n, 4)
+```
+
+La distribución es marcadamente bipolar. Un `r pc(p_diario)` de las personas
+nominadas participa a diario o casi a diario, mientras que un `r pc(p_esporad)`
+lo hace una vez por semana o menos. Entre ambos extremos hay poco. El cruce con
+las horas diarias muestra que esa polarización es acumulativa: quienes participan
+todos los días son también quienes dedican más horas por día
+(`r pc(p_8h)` del total declara más de ocho horas diarias).
+
+
+## Antigüedad en el cuidado
+
+```{r antiguedad}
+antig <- personas %>%
+  dplyr::mutate(anio_valido = dplyr::if_else(!is.na(anio) & !is.na(edad_nino) &
+                                               anio <= edad_nino, anio, NA_real_),
+                desde_nacimiento = anio_valido == 0)
+
+p_nacimiento <- mean(antig$desde_nacimiento, na.rm = TRUE)
+```
+
+Un `r pc(p_nacimiento)` de las personas nominadas participa del cuidado desde el
+nacimiento del niño o la niña.
+
+## Jerarquía del cuidado
+
+```{r jerarquia}
+principales <- personas %>%
+  dplyr::filter(jerarquia == 1) %>%
+  dplyr::select(id_entrevistado, vinculo_lab, sexo, sex_n)
+
+mostrar(tabla_frec(principales$sexo, "Sexo del cuidador/a principal"),
+        caption = "Sexo de la persona ubicada en el primer lugar de la jerarquía de cuidado")
+mostrar(tabla_frec(principales$vinculo_lab, "Vínculo del cuidador/a principal"),
+        caption = "Vínculo de la persona ubicada en el primer lugar de la jerarquía")
+
+p_mujer_principal <- prop_cod(principales$sex_n, 2)
+```
+
+El ejercicio de ordenamiento --que pide jerarquizar a las personas mencionadas
+según tiempo, responsabilidad y regularidad-- muestra que un `r pc(p_mujer_principal)` de las
+personas situadas en el primer lugar son mujeres.
+
+
+
+# La red institucional
+
+```{r instituciones}
+resumen_inst <- red_ego %>%
+  dplyr::summarise(
+    `Media` = mean(n_instituciones),
+    `Mediana` = median(n_instituciones),
+    `Mínimo` = min(n_instituciones),
+    `Máximo` = max(n_instituciones)
+  )
+
+mostrar(resumen_inst, caption = "Número de instituciones por caso")
+mostrar(tabla_frec(instituciones$dependencia_lab, "Tipo de dependencia"),
+        caption = "Régimen de propiedad de las instituciones mencionadas")
+```
+
+```{r tipo-cuidado-inst}
+tipos_inst <- instituciones %>%
+  dplyr::select(id_entrevistado, posicion, tipo_cuidado) %>%
+  tidyr::separate_rows(tipo_cuidado, sep = ",\\s*") %>%
+  dplyr::mutate(codigo = suppressWarnings(as.numeric(tipo_cuidado))) %>%
+  dplyr::filter(!is.na(codigo), codigo != -888) %>%
+  dplyr::left_join(etiquetas("tipo_cuidado"), by = "codigo")
+
+tab_tipos_inst <- tipos_inst %>%
+  dplyr::count(etiqueta, name = "n") %>%
+  dplyr::mutate(pct = round(100 * n / n_inst, 1)) %>%
+  dplyr::arrange(dplyr::desc(n)) %>%
+  stats::setNames(c("Tipo de apoyo", "Menciones", "% de instituciones"))
+
+mostrar(tab_tipos_inst,
+        caption = "Tipos de cuidado o apoyo recibido en instituciones (respuesta múltiple)")
+
+mostrar(tabla_frec(instituciones$frecuencia_lab, "Frecuencia", ordenar = FALSE),
+        caption = "Frecuencia de asistencia o atención institucional")
+mostrar(tabla_frec(instituciones$horas_lab, "Horas por día", ordenar = FALSE),
+        caption = "Horas de permanencia en la institución")
+```
+
+```{r cifras-inst}
+p_publica  <- prop_cod(num(instituciones$dependencia), 1)
+p_lucro    <- prop_cod(num(instituciones$dependencia), 2)
+p_una_inst <- mean(red_ego$n_instituciones == 1)
+```
+
+Las `r n_casos` redes mencionan `r n_inst` instituciones, con una media de
+`r n1(mean(red_ego$n_instituciones))` por caso; `r pc(p_una_inst)` de los casos
+menciona una sola.
+
+El régimen de propiedad muestra una presencia mayoritaria del sector privado con
+fines de lucro (`r pc(p_lucro)`) por sobre la oferta pública (`r pc(p_publica)`).
+

@@ -2,3 +2,16 @@
 .Rhistory
 .RData
 .Ruserdata
+input/data/proc/redes 2026-06-10.RData
+input/data/proc/redes 2026-07-01.RData
+input/data/proc/redes 2026-07-02.RData
+input/data/proc/redes 2026-08-06.RData
+input/data/proc/redes 2026-08-31.RData
+redes 07-02.xlsx
+redes 08-31.xlsx
+redes 08-06.xlsx
+redes 09-02.xlsx
+input/data/proc/redes 2026-09-02.RData
+
+/.quarto/
+**/*.quarto_ipynb

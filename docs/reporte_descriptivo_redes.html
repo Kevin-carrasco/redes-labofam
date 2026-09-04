@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>2&nbsp; Redes de cuidado: reporte descriptivo – Manual Metodológico redes Labofam</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./codebook/codebook.html" rel="prev">
+<link href="./labofam.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-643fafec0ac7fc8f947067212519b721.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script><script src="site_libs/kePrint-0.0.1/kePrint.js"></script><link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+</head>
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reporte_descriptivo_redes.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Redes de cuidado: reporte descriptivo</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Manual Metodológico redes Labofam</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/kevin-carrasco/labofam-codebook" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./codebook/codebook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Libro de códigos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reporte_descriptivo_redes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Redes de cuidado: reporte descriptivo</span></span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Contenidos</h2>
+   
+  <ul>
+<li><a href="#presentaci%C3%B3n" id="toc-presentación" class="nav-link active" data-scroll-target="#presentaci%C3%B3n"><span class="header-section-number">3</span> Presentación</a></li>
+  <li><a href="#sec-na" id="toc-sec-na" class="nav-link" data-scroll-target="#sec-na"><span class="header-section-number">4</span> Estructura de los datos y tratamiento de la ausencia de información</a></li>
+  <li><a href="#el-estudio" id="toc-el-estudio" class="nav-link" data-scroll-target="#el-estudio"><span class="header-section-number">5</span> El estudio</a></li>
+  <li>
+<a href="#la-red-de-personas-que-cuidan" id="toc-la-red-de-personas-que-cuidan" class="nav-link" data-scroll-target="#la-red-de-personas-que-cuidan"><span class="header-section-number">6</span> La red de personas que cuidan</a>
+  <ul class="collapse">
+<li><a href="#tama%C3%B1o" id="toc-tamaño" class="nav-link" data-scroll-target="#tama%C3%B1o"><span class="header-section-number">6.1</span> Tamaño</a></li>
+  <li><a href="#qui%C3%A9nes-son-v%C3%ADnculo-sexo-y-generaci%C3%B3n" id="toc-quiénes-son-vínculo-sexo-y-generación" class="nav-link" data-scroll-target="#qui%C3%A9nes-son-v%C3%ADnculo-sexo-y-generaci%C3%B3n"><span class="header-section-number">6.2</span> Quiénes son: vínculo, sexo y generación</a></li>
+  <li><a href="#escolaridad-y-origen" id="toc-escolaridad-y-origen" class="nav-link" data-scroll-target="#escolaridad-y-origen"><span class="header-section-number">6.3</span> Escolaridad y origen</a></li>
+  <li><a href="#territorio" id="toc-territorio" class="nav-link" data-scroll-target="#territorio"><span class="header-section-number">6.4</span> Territorio</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#qu%C3%A9-hacen" id="toc-qué-hacen" class="nav-link" data-scroll-target="#qu%C3%A9-hacen"><span class="header-section-number">7</span> Qué hacen</a>
+  <ul class="collapse">
+<li><a href="#tipos-de-cuidado" id="toc-tipos-de-cuidado" class="nav-link" data-scroll-target="#tipos-de-cuidado"><span class="header-section-number">7.1</span> Tipos de cuidado</a></li>
+  <li><a href="#frecuencia-y-horas" id="toc-frecuencia-y-horas" class="nav-link" data-scroll-target="#frecuencia-y-horas"><span class="header-section-number">7.2</span> Frecuencia y horas</a></li>
+  <li><a href="#antig%C3%BCedad-en-el-cuidado" id="toc-antigüedad-en-el-cuidado" class="nav-link" data-scroll-target="#antig%C3%BCedad-en-el-cuidado"><span class="header-section-number">7.3</span> Antigüedad en el cuidado</a></li>
+  <li><a href="#jerarqu%C3%ADa-del-cuidado" id="toc-jerarquía-del-cuidado" class="nav-link" data-scroll-target="#jerarqu%C3%ADa-del-cuidado"><span class="header-section-number">7.4</span> Jerarquía del cuidado</a></li>
+  </ul>
+</li>
+  <li><a href="#la-red-institucional" id="toc-la-red-institucional" class="nav-link" data-scroll-target="#la-red-institucional"><span class="header-section-number">8</span> La red institucional</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Redes de cuidado: reporte descriptivo</span>
+</h1>
+<p class="subtitle lead">Instrumento de redes sociales en cuidado — LABOFAM</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">4 de septiembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header><section id="presentación" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Presentación</h1>
+<ul>
+<li>
+</li></ul></section><section id="sec-na" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Estructura de los datos y tratamiento de la ausencia de información</h1>
+<p>La base contiene 1193 columnas para 60 casos, pero esa amplitud es aparente. El cuestionario está organizado como una <strong>red de posiciones fijas</strong>: reserva veinte espacios para personas y veinte para instituciones, con sus respectivos bloques de atributos y 190 columnas de díadas. Cuando un entrevistado nomina cuatro personas, las dieciséis posiciones restantes quedan vacías.</p>
+<p>Esto tiene una consecuencia interpretativa importante: <strong>la enorme mayoría de los <code>NA</code> de la base no son no-respuesta, sino ausencia estructural</strong>. Una vez que se reconstruye la base en formato largo –un registro por persona nominada y uno por institución– la cobertura es prácticamente total.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Datos faltantes en el nivel de personas nominadas, una vez descartadas las posiciones no utilizadas del roster</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Alter declarados</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Casos sin dato</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">sexo</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">edad</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">educacion</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pais_nac</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">region_res</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">vinculo_lab</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">frecuencia_lab</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">horas_lab</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cuidado</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">anio</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Respuestas 'No sabe' (-888) en el nivel de personas nominadas</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Respuestas 'No sabe' (-888)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">educ</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pais</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">frecuencia</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sex</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cuidado</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>La no-respuesta sustantiva se codifica de manera explícita como <code>-888</code> (“No sabe”) y es marginal: se concentra en el nivel educativo de terceros (9 casos) y en unas pocas menciones aisladas de país de nacimiento y frecuencia.</p>
+</section><section id="el-estudio" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> El estudio</h1>
+<p>El levantamiento reúne 60 casos, aplicados entre el 06-05-2026 y el 01-09-2026. Cada caso corresponde a un niño o niña –el o la menor del hogar cuando hay más de uno– y a la red de cuidado construida en torno a él o ella.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Distribución por sexo</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Sexo del niño/a</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">63.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">36.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Edad en años cumplidos</caption>
+<thead><tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Edad media</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mediana</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mínimo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Máximo</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: right;">6.5</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<p>La muestra cubre prácticamente toda la infancia previa a la adolescencia (0 a 12 años, con una media de 6,5).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-edad" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-edad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reporte_descriptivo_redes_files/figure-html/fig-edad-1.png" id="fig-edad" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-edad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5.1
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Todos los niños y niñas de la muestra nacieron en Chile, de modo que la diversidad migratoria que aparece más adelante corresponde a la generación adulta de la red: familias en las que los hijos son chilenos y parte de quienes los cuidan no lo son.</p>
+</section><section id="la-red-de-personas-que-cuidan" class="level1" data-number="6"><h1 data-number="6">
+<span class="header-section-number">6</span> La red de personas que cuidan</h1>
+<section id="tamaño" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="tamaño">
+<span class="header-section-number">6.1</span> Tamaño</h2>
+<p>Las 60 redes reúnen 231 personas nominadas. El tamaño promedio es de 3,9 personas (mediana 4), con un rango que va de 1 a 8.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-tamano" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-tamano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reporte_descriptivo_redes_files/figure-html/fig-tamano-1.png" id="fig-tamano" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-tamano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.1
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>La concentración en tres y cuatro personas (68,3% de los casos) es el hallazgo más elocuente de esta sección. Pese a que el instrumento admitía hasta veinte nombres, las redes efectivamente declaradas son <strong>pequeñas y densamente familiares</strong>.</p>
+</section><section id="quiénes-son-vínculo-sexo-y-generación" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="quiénes-son-vínculo-sexo-y-generación">
+<span class="header-section-number">6.2</span> Quiénes son: vínculo, sexo y generación</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-vinculo" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-vinculo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reporte_descriptivo_redes_files/figure-html/fig-vinculo-1.png" id="fig-vinculo" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-vinculo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.2
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Composición de la red por tipo de vínculo</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Vínculo con el niño/a</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Padre/madre corresidente</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;">45.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abuelo/a no corresidente</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">20.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Otro/a familiar no corresidente</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">6.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Padre/madre no corresidente</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abuelo/a corresidente</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">4.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hermano/a mayor de edad corresidente</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Amigo/a de la familia (no remunerado/a)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Otro</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Otro/a familiar corresidente</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hermano/a menor de edad corresidente</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Persona remunerada en el hogar</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pareja del padre/madre corresidente</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Persona remunerada en otra casa</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hermano/a mayor de edad no corresidente</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vecino/a (no remunerado/a)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Padres y madres concentran 50,2% de las nominaciones y abuelos y abuelas otro 24,7%. El cuidado remunerado –personas contratadas en el hogar o en otra casa– representa apenas 3%, y el cuidado extrafamiliar no remunerado (vecinos, amistades de la familia) un 3,9%.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sexo-vinculo" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-sexo-vinculo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reporte_descriptivo_redes_files/figure-html/fig-sexo-vinculo-1.png" id="fig-sexo-vinculo" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-sexo-vinculo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.3
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Las mujeres representan 62,8% de las personas nominadas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Edad de las personas cuidadoras (años cumplidos)</caption>
+<thead><tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Media</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mediana</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mínimo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Máximo</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: right;">42.6</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">81</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-edad-alter" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-edad-alter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reporte_descriptivo_redes_files/figure-html/fig-edad-alter-1.png" id="fig-edad-alter" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-edad-alter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.4
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>La distribución etaria es bimodal, con un núcleo en torno a los treinta y cuarenta años y un segundo grupo en torno a los sesenta.</p>
+</section><section id="escolaridad-y-origen" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="escolaridad-y-origen">
+<span class="header-section-number">6.3</span> Escolaridad y origen</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Máximo nivel educativo alcanzado por las personas cuidadoras</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Nivel educativo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Básica incompleta</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Básica completa o media incompleta</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">8.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Media completa</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">23.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Técnico o profesional incompleto en Instituto Profesional (IP) o Centro de Educación Técnica (CFT)</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Técnico o profesional completo en Instituto Profesional (IP) o Centro de Educación Técnica (CFT)</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">19.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Universitario incompleto</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">7.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Universitario completo</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">27.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Postgrado</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">9.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Origen nacional de las personas cuidadoras</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">País de nacimiento</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Chile</td>
+<td style="text-align: right;">217</td>
+<td style="text-align: right;">94.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Venezuela</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colombia</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perú</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Otro país no latinoamericano</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Un 67,1% de las personas cuidadoras alcanzó educación terciaria (técnica o universitaria, completa o incompleta).</p>
+<p>La presencia migrante alcanza 5,7% de las nominaciones, con Venezuela como principal origen.</p>
+</section><section id="territorio" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="territorio">
+<span class="header-section-number">6.4</span> Territorio</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Distribución territorial de las personas cuidadoras</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Región de residencia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Región Metropolitana de Santiago</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">55.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valparaíso</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">20.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maule</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">18.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ñuble</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Biobío</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Las redes se concentran en la Región Metropolitana, seguida de Valparaíso y el Maule. Más informativo que la distribución regional es el dato de proximidad inmediata: 66,1% de las personas nominadas (excluida la primera de cada red, que corresponde al entrevistado o entrevistada) reside en la misma comuna que quien encabeza la red.</p>
+</section></section><section id="qué-hacen" class="level1" data-number="7"><h1 data-number="7">
+<span class="header-section-number">7</span> Qué hacen</h1>
+<section id="tipos-de-cuidado" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="tipos-de-cuidado">
+<span class="header-section-number">7.1</span> Tipos de cuidado</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Actividades de cuidado realizadas en el último mes (respuesta múltiple)</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Tipo de cuidado</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Menciones</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">% de personas nominadas</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Supervisó al niño/a (estuvo presente) aunque no hizo una actividad específica</td>
+<td style="text-align: right;">217</td>
+<td style="text-align: right;">93.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Compartió una comida con el niño/a</td>
+<td style="text-align: right;">205</td>
+<td style="text-align: right;">88.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jugó o compartió tiempo de recreación con el niño/a</td>
+<td style="text-align: right;">201</td>
+<td style="text-align: right;">87.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alimentó, bañó o vistió al niño/a</td>
+<td style="text-align: right;">196</td>
+<td style="text-align: right;">84.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Llevó o recogió al niño/a a actividades (jardín infantil, colegio, médico, actividades deportivas, entre otras actividades)</td>
+<td style="text-align: right;">162</td>
+<td style="text-align: right;">70.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ayudó con tareas escolares</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">49.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Realizó otra actividad de cuidado</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">10.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-tipos" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-tipos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reporte_descriptivo_redes_files/figure-html/fig-tipos-1.png" id="fig-tipos" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-tipos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.1
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Cada persona nominada realiza en promedio 4,9 tipos distintos de cuidado. La supervisión y el juego encabezan la lista, seguidos de la alimentación y el cuidado corporal.</p>
+</section><section id="frecuencia-y-horas" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="frecuencia-y-horas">
+<span class="header-section-number">7.2</span> Frecuencia y horas</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Frecuencia de participación en el cuidado durante el último mes</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Frecuencia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Menos de una vez por semana</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">8.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Una vez por semana</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">16.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Varias veces por semana (2-4 días)</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">21.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Casi todos los días (5-6 días)</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">9.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Todos los días</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">43.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Horas promedio de cuidado en los días de participación</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Horas por día</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Menos de 2 horas</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Entre 2 y 4 horas</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">27.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Entre 4 y 8 horas</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">38.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Más de 8 horas</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">23.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-intensidad" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-intensidad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="reporte_descriptivo_redes_files/figure-html/fig-intensidad-1.png" id="fig-intensidad" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-intensidad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.2
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>La distribución es marcadamente bipolar. Un 53,5% de las personas nominadas participa a diario o casi a diario, mientras que un 24,8% lo hace una vez por semana o menos. Entre ambos extremos hay poco. El cruce con las horas diarias muestra que esa polarización es acumulativa: quienes participan todos los días son también quienes dedican más horas por día (23,4% del total declara más de ocho horas diarias).</p>
+</section><section id="antigüedad-en-el-cuidado" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="antigüedad-en-el-cuidado">
+<span class="header-section-number">7.3</span> Antigüedad en el cuidado</h2>
+<p>Un 77% de las personas nominadas participa del cuidado desde el nacimiento del niño o la niña.</p>
+</section><section id="jerarquía-del-cuidado" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="jerarquía-del-cuidado">
+<span class="header-section-number">7.4</span> Jerarquía del cuidado</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Sexo de la persona ubicada en el primer lugar de la jerarquía de cuidado</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Sexo del cuidador/a principal</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mujer</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">83.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hombre</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">16.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Vínculo de la persona ubicada en el primer lugar de la jerarquía</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Vínculo del cuidador/a principal</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Padre/madre corresidente</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">88.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pareja del padre/madre corresidente</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Otro/a familiar no corresidente</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Padre/madre no corresidente</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abuelo/a corresidente</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abuelo/a no corresidente</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>El ejercicio de ordenamiento –que pide jerarquizar a las personas mencionadas según tiempo, responsabilidad y regularidad– muestra que un 83,3% de las personas situadas en el primer lugar son mujeres.</p>
+</section></section><section id="la-red-institucional" class="level1" data-number="8"><h1 data-number="8">
+<span class="header-section-number">8</span> La red institucional</h1>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Número de instituciones por caso</caption>
+<thead><tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Media</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mediana</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mínimo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Máximo</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: right;">1.8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+</tr></tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Régimen de propiedad de las instituciones mencionadas</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Tipo de dependencia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Privada con fines de lucro</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">43.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pública</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">37.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Privada sin fines de lucro (ONG, fundación, corporación)</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">15.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Comunitaria o religiosa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Tipos de cuidado o apoyo recibido en instituciones (respuesta múltiple)</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Tipo de apoyo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Menciones</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">% de instituciones</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Educación</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">55.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Actividades recreativas, deportivas o culturales</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">54.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Atención de salud</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">52.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Supervisión durante el día</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">51.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Apoyo socioemocional o psicológico</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">33.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alimentación (almuerzo, colaciones)</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">31.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Otro</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Frecuencia de asistencia o atención institucional</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Frecuencia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Menos de una vez por semana</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">25.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Una vez por semana</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">16.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Varias veces por semana (2-4 días)</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">12.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Casi todos los días (5-6 días)</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">44.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Todos los días</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Horas de permanencia en la institución</caption>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Horas por día</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">%</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Menos de 2 horas</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">38.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Entre 2 y 4 horas</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">16.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Entre 4 y 8 horas</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">37.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Más de 8 horas</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Las 60 redes mencionan 108 instituciones, con una media de 1,8 por caso; 48,3% de los casos menciona una sola.</p>
+<p>El régimen de propiedad muestra una presencia mayoritaria del sector privado con fines de lucro (43,3%) por sobre la oferta pública (37,5%).</p>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./codebook/codebook.html" class="pagination-link" aria-label="Libro de códigos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Libro de códigos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Núcleo Milenio en Política Laboral y Vida Familiar y Colectiva (LABOFAM).</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Este libro se construyó con <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>
