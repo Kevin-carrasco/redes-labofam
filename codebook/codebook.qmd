@@ -32,7 +32,8 @@ pacman::p_load(tidyverse,
                here, 
                codebook,
                sjlabelled,
-               readr)
+               readr,
+               openxlsx)
 
 options(scipen=999)
 rm(list = ls())
@@ -148,4 +149,77 @@ vars_without_values <- vars_to_label[
 codebook:::label_browser_static(df)
 ```
 
+```{r export-xlsx, include=FALSE}
+# ---------------------------------------------------------------
+# Exportación del mismo libro de códigos a formato .xlsx
+# ---------------------------------------------------------------
 
+# Etiqueta de variable (atributo "label")
+get_var_label <- function(x) {
+  l <- attr(x, "label", exact = TRUE)
+  if (is.null(l) || length(l) == 0) return(NA_character_)
+  as.character(l)[1]
+}
+
+# Categorías de respuesta (atributo "labels"), en formato "1. Texto"
+get_value_labels <- function(x, sep = "\n") {
+  labs <- attr(x, "labels", exact = TRUE)
+  if (is.null(labs) || length(labs) == 0) return(NA_character_)
+
+  # Convención haven/sjlabelled: valores = códigos, nombres = etiquetas.
+  # El bloque else cubre el caso inverso, por seguridad.
+  if (is.numeric(labs)) {
+    codigos <- unname(labs)
+    textos  <- names(labs)
+  } else {
+    codigos <- names(labs)
+    textos  <- unname(labs)
+  }
+
+  if (is.null(textos)) return(paste0(codigos, collapse = sep))
+
+  paste0(codigos, ". ", textos, collapse = sep)
+}
+
+codebook_df <- tibble(
+  name         = names(df),
+  label        = map_chr(df, get_var_label),
+  value_labels = map_chr(df, get_value_labels)
+)
+
+wb <- createWorkbook()
+addWorksheet(wb, "Libro de códigos")
+
+# withFilter activa los filtros por columna (equivalente a los
+# buscadores por columna de la versión html)
+writeData(wb, sheet = 1, x = codebook_df, withFilter = TRUE, keepNA = FALSE)
+
+estilo_encabezado <- createStyle(
+  textDecoration = "bold",
+  fgFill         = "#F2F2F2",
+  border         = "TopBottom",
+  halign         = "left",
+  valign         = "center",
+  wrapText       = TRUE
+)
+
+estilo_celda <- createStyle(valign = "top", wrapText = TRUE)
+
+addStyle(wb, sheet = 1, style = estilo_encabezado,
+         rows = 1, cols = 1:ncol(codebook_df), gridExpand = TRUE)
+
+addStyle(wb, sheet = 1, style = estilo_celda,
+         rows = 2:(nrow(codebook_df) + 1), cols = 1:ncol(codebook_df),
+         gridExpand = TRUE)
+
+setColWidths(wb, sheet = 1, cols = 1:3, widths = c(22, 70, 45))
+freezePane(wb, sheet = 1, firstRow = TRUE)
+
+dir.create(here("output"), showWarnings = FALSE, recursive = TRUE)
+
+saveWorkbook(wb,
+             file = here("output", "codebook.xlsx"),
+             overwrite = TRUE)
+```
+
+El libro de códigos también se encuentra disponible en formato Excel: [descargar `codebook.xlsx`](../output/codebook.xlsx).
